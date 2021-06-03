@@ -1,6 +1,6 @@
 [package]
 name = "slower"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Fuzen <me@fuzen.cafe>"]
 edition = "2018"
 description = "Rate limit stdout output"
@@ -13,10 +13,19 @@ repository = "https://github.com/fuzen-py/slower"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-clap = { version = "2.33.3", default-features = false }
+clap = { version = "2.33.3", default-features = false, optional = true }
 
 [profile.release]
 opt-level = "z"
 lto = true
 codegen-units = 1
 panic = 'abort'
+
+[features]
+default = ["cli"]
+cli = ["clap"]
+
+[[bin]]
+name = "slower"
+path = "bin/slower.rs"
+required-features = ["cli"]

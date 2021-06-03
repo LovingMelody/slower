@@ -4,10 +4,10 @@ with pkgs;
 {
   slower = rustPlatform.buildRustPackage rec {
     pname = "slower";
-    version = "0.1";
+    version = "0.2.0";
     src = ./.;
 
-    cargoSha256 = "sha256-SmIheV4rg15JeJCRta0qJ8v7SP0z8XB5JzlKvzq53DY=";
+    cargoSha256 = "1yafy23gg0zx6x04s064lb31vlxi9gs5j530ibzqyv65bnxn6bgv";
 
     nativeBuildInputs = [ ];
     buildInputs = [ ];
