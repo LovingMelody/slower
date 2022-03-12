@@ -26,13 +26,13 @@ fn reader(sender: Sender<String>) -> JoinHandle<()> {
 }
 
 fn rate_limit() -> Duration {
-    let matches = clap::App::new("slower")
+    let matches = clap::Command::new("slower")
         .version("0.1")
         .author("Fuzen-py <me@fuzen.cafe>")
         .about("Slows down stdout output")
         .arg(
-            clap::Arg::with_name("rate-limit")
-                .short("t")
+            clap::Arg::new("rate-limit")
+                .short('t')
                 .long("rate-limit")
                 .help("output rate limit in miliseconds")
                 .default_value("150")
